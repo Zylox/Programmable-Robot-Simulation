@@ -1,9 +1,3 @@
-%!C:\cygwin64\bin\octave -qf
-%!D:\cygwin64\bin\octave -qf
-%!C:\Software\Octave-3.6.4\bin\octave -qf
-
-
-
 clear;
 
 %windows execution
