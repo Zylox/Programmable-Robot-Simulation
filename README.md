@@ -1,4 +1,4 @@
-How To Use:
+Guide
 ------------------------------------------
 Written by Zachary Higginbotham  
 
@@ -16,6 +16,7 @@ The language the user will be programming the bots in is Octave, a GNU version o
 
 Setup Instructions:
 --------------------
+If your reading this from github, click the download zip on the side to download.
 You will need to install octave. For windows I would recommend using the cygwin package, but http://octave.sourceforge.net/ also has installers for windows and mac.
 For Linux, its a bit more complicated, but can be found by googling.
 You will also need to have java runtime environment installed, which many people probably already do.
