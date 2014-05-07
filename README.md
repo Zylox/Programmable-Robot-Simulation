@@ -49,6 +49,8 @@ After processing your data as you see fit, you will have to decide what to do.
 There is a string variable called command that gets passed to you and passed back at the end.
 This is where you fill in your command.
 All commands will execute over multiple steps and then control will be handed back to you.
+Included are two bots called zachbot and fergbot that currently are programmed to just kinda meander across the map.
+Use them as examples if you want.
 
 
 
