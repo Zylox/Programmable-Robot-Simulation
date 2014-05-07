@@ -34,7 +34,7 @@ If you just have the octave console (like if you used the windows installer), yo
 ```
     system("XXX")
 ```
-where xxx is the above code.
+where xxx is the previous code snippet.
 An example complete exection line might be:
 ```
     octave Roboloop.m  -m starmap.png -b zachbot -debug -rs -norand
