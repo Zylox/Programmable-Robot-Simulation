@@ -103,7 +103,7 @@ Arguments:
 * -debug 	- Turns on debug text. Program will be mostly text silent while running without this command.
 			  What it outputs right now is most likely not very useful for your purposes, but this wil be improved.
 * -rs		- Runs the graphics program immediately after finishing simulation.
-* -rps		- Runs the previously calculated simulation. This command should be called as the only command line argument when using it
+* -rps		- Runs the previously calculated simulation (so just the graphics part). This command should be called as the only command line argument when using it
 * -norand	- Turns off all randomness. Good for debugging without having to change config file.
 
 
