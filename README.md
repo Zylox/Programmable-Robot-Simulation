@@ -104,6 +104,10 @@ Arguments:
 			  What it outputs right now is most likely not very useful for your purposes, but this wil be improved.
 * -rs		- Runs the graphics program immediately after finishing simulation.
 * -rps		- Runs the previously calculated simulation (so just the graphics part). This command should be called as the only command line argument when using it
+			  usage:
+			 ```
+			 octave Roboloop.m -rps
+			 ```
 * -norand	- Turns off all randomness. Good for debugging without having to change config file.
 
 
