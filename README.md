@@ -124,7 +124,7 @@ These values include:
 * in simulation time simulation should run for in milliseconds (not real world time)
 * how many milliseconds each step should take in simulation time (not real world time)
 * radius of the bot
-* a field for default command line arguments, in case you get tired of specifying the map or want to have a fully functional preset setting file.
+* a field for default command line arguments, in case you get tired of specifying the map or want to have a fully functional preset setting file. THIS IS CURRENTLY BROKEN, will be fixed soon.
 
 This file lets you tweak values all in one place, as well as lets the professor specify all simulation settings from one file for say, an assignment.
 

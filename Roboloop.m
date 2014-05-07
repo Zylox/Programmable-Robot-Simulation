@@ -217,6 +217,11 @@ debug = 0;									%debug determines if the debugDisp function works
 names = {};									%initialize names, the names of the bots
 playercount = 0;							
 arguments = argv();							%takes in command line arguments
+temp = {};
+for(i = 1:size(arguments))
+	temp {1,i} = arguments{i,1};
+endfor
+arguments = temp;
 
 offset = 1;									%use this variable to offset whether non defualt config was taken in or not
 runS = 0;									%variable on whether or not to run the graphics immediately after
@@ -230,19 +235,19 @@ if(strcmp(arguments{1}, "-c") || strcmp(arguments{1}, "-config"))	%checks whethe
 	offset = 3;
 else										%if not, uses default
 	source("config.m");
-	commandArgs = strsplit(defaultCommandLineArgs, " ");
-	disp(commandArgs);		
+	commandArgs = strsplit(defaultCommandLineArgs, " ");	
 	if(strcmp(commandArgs,"") != 1)
 		moreArgs = mat2cell(commandArgs, 1);
-		arguments = {arguments{:}, moreArgs{1,1}{:}};	%adds default command line arguments from file if there are any
-	endif
+		arguments = [arguments{1,:}, moreArgs{1,:}];	%adds default command line arguments from file if there are any
 	
+	endif
 	
 endif
 %disp(arguments)
-argSize = size(arguments(:,1));	%complicated access stuff that i dont fully understand
+%size(arguments)
+argSize = size(arguments(1,:));	%complicated access stuff that i dont fully understand
 %disp(argSize)
-argSize = argSize(1);			%for some reason this construct is not single dimensional so it has to be accessed like this
+argSize = argSize(2);			%for some reason this construct is not single dimensional so it has to be accessed like this
 %disp(argSize)
 for(i = offset:argSize)
 
