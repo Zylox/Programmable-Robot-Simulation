@@ -231,18 +231,24 @@ if(strcmp(arguments{1}, "-c") || strcmp(arguments{1}, "-config"))	%checks whethe
 else										%if not, uses default
 	source("config.m");
 	commandArgs = strsplit(defaultCommandLineArgs, " ");
-			
-	moreArgs = mat2cell(commandArgs, 1);
-	arguments = {arguments{:}, moreArgs{1,1}{:}};	%adds default command line arguments from file
+	disp(commandArgs);		
+	if(strcmp(commandArgs,"") != 1)
+		moreArgs = mat2cell(commandArgs, 1);
+		arguments = {arguments{:}, moreArgs{1,1}{:}};	%adds default command line arguments from file if there are any
+	endif
+	
 	
 endif
-
-argSize = size(arguments(1,:));	%complicated access stuff that i dont fully understand
-argSize = argSize(2);			%for some reason this construct is not single dimensional so it has to be accessed like this
+%disp(arguments)
+argSize = size(arguments(:,1));	%complicated access stuff that i dont fully understand
+%disp(argSize)
+argSize = argSize(1);			%for some reason this construct is not single dimensional so it has to be accessed like this
+%disp(argSize)
 for(i = offset:argSize)
 
 	switch(arguments{i})
-		case "-norand"						%sets the randomness to 0
+		case "-norand"					%sets the randomness to 0
+
 			sigma.movementSigma = 0;		%useful for debugging
 			sigma.turningSigma = 0;
 			sigma.turningSensorSigma = 0;
@@ -263,6 +269,7 @@ for(i = offset:argSize)
 		case "-m"							%the map to be read in
 			%initalizing map
 			i++;
+						
 			%disp(ccstrcat(arguments(1,i), ".m"));
 			source(cstrcat("maps/",char(arguments(i)), ".m"));
 			map.name = eval(strcat(arguments(i),".name"));
@@ -275,6 +282,7 @@ for(i = offset:argSize)
 		case "-b"							%reads in a bot
 			i++;							%initilizes all the feilds
 			playercount++;
+
 			source(cstrcat("bots/",char(arguments(i)), ".m"));
 			x = eval(strcat(arguments(i),".name"));
 		
