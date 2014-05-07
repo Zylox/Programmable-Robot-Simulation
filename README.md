@@ -30,7 +30,7 @@ If you can run octave from the command line however you installed it, you run it
 ```
     octave Roboloop.m <any command line arguments>
 ```
-If you jsut have the octave console, you can run it by calling
+If you jsut have the octave console (like if you used the windows installer), you can run it by calling
 ```
     system("XXX")
 ```
