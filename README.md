@@ -13,11 +13,13 @@ with the simulation using a simple api. Actions, such as moving, turning, readin
 There is a degree of randomness from a normal distribution added to each action which the user must devise methods to overcome. All of these variables can be changed in the config file.
 The bot's only view of the world is through its sole sensor placed at its center that can take a reading of the distance to the nearest object in the direction it is facing.
 The language the user will be programming the bots in is Octave, a GNU version of MATLAB.
+After the simluation is calculated in octave, a provided graphics program can display the results from a generated script.
 
 Setup Instructions:
 --------------------
 If you are reading this from github, click the download zip on the side to download.
 You will need to install octave. For windows I would recommend using the cygwin package, but http://octave.sourceforge.net/ also has installers for windows and mac.
+I know it works on octave 3.6.4 through 3.8. I don't know any reason it wouldn't work on other versions though.
 For Linux, its a bit more complicated, but can be found by googling.
 You will also need to have java runtime environment installed, which many people probably already do.
 
