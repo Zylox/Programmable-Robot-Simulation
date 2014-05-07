@@ -39,6 +39,10 @@ An example complete exection line might be:
 ```
     octave Roboloop.m  -m starmap.png -b zachbot -debug -rs -norand
 ```
+```
+    system("octave Roboloop.m  -m starmap.png -b zachbot -debug -rs -norand")
+```
+
 Multiple bots can be run at the same time, but there may be an error in this presently. Beware.
 
 
