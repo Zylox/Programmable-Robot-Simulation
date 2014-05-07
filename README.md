@@ -27,7 +27,7 @@ You will also need to have java runtime environment installed, which many people
 
 To run:
 -------
-If you can run octave from the command line however you installed it, you run it by navigating to this folder and typing
+If you can run octave from the command line (such as cygwin or the linux ternimal) however you installed it, you run it by navigating to this folder (using the command cd or similar) and typing
 ```
     octave Roboloop.m <any command line arguments>
 ```
