@@ -83,7 +83,8 @@ Commands available to you are:
 * "turnSensor X" - This will turn your sensor by X degrees. Sensor is located at the center of your bot.
 					Randomness is added at each step.
 				   Positive values turn right, negative turn left.
-* "sense" - This executes a sensor reading. The value is returned to you in your state object under sensorReading
+* "sense" - This executes a sensor reading. The distance to the nearest object in the direction the sensor is facing is returned to you 
+			in your state object under sensorReading
 			Randomness is added to the final value found.
 * "finished" - this tells the program you are done. Your bot will not update after this command.
 * no command or "update" - does nothing this cycle, returns to update next cycle.
