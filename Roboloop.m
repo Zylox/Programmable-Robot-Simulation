@@ -186,11 +186,26 @@ endfunction
 %runs on unix, pc, or mac
 function runSim()
 	if(isunix())
-		unix("java -jar farjar.jar");
+		unix("java -Djava.library.path=natives -jar farjar.jar");
 	elseif(ispc())
-		dos("java -jar farjar.jar");
+		dos("java -Djava.library.path=natives -jar farjar.jar");
 	elseif(ismac())
-		unix("java -jar farjar.jar");
+		unix("java -Djava.library.path=natives -jar farjar.jar");
+	else
+		disp("Operating System not recognized, good job");
+	endif 
+endfunction
+
+function genMap(mapName)
+	if(isunix())
+	
+		unix(cstrcat("java -jar -Djava.library.path=natives farjar.jar  -genmap ", mapName));
+	elseif(ispc())
+	
+		dos(cstrcat("java -jar -Djava.library.path=natives farjar.jar  -genmap ", mapName));
+	elseif(ismac())
+	
+		unix(cstrcat("java -jar -Djava.library.path=natives farjar.jar  -genmap ", mapName));
 	else
 		disp("Operating System not recognized, good job");
 	endif 
@@ -217,11 +232,6 @@ debug = 0;									%debug determines if the debugDisp function works
 names = {};									%initialize names, the names of the bots
 playercount = 0;							
 arguments = argv();							%takes in command line arguments
-temp = {};
-for(i = 1:size(arguments))
-	temp {1,i} = arguments{i,1};
-endfor
-arguments = temp;
 
 offset = 1;									%use this variable to offset whether non defualt config was taken in or not
 runS = 0;									%variable on whether or not to run the graphics immediately after
@@ -235,19 +245,18 @@ if(strcmp(arguments{1}, "-c") || strcmp(arguments{1}, "-config"))	%checks whethe
 	offset = 3;
 else										%if not, uses default
 	source("config.m");
-	commandArgs = strsplit(defaultCommandLineArgs, " ");	
+	commandArgs = strsplit(defaultCommandLineArgs, " ");
 	if(strcmp(commandArgs,"") != 1)
 		moreArgs = mat2cell(commandArgs, 1);
-		arguments = [arguments{1,:}, moreArgs{1,:}];	%adds default command line arguments from file if there are any
-	
+		arguments = {arguments{:}, moreArgs{1,1}{:}};	%adds default command line arguments from file if there are any
 	endif
+	
 	
 endif
 %disp(arguments)
-%size(arguments)
-argSize = size(arguments(1,:));	%complicated access stuff that i dont fully understand
+argSize = size(arguments(:,1));	%complicated access stuff that i dont fully understand
 %disp(argSize)
-argSize = argSize(2);			%for some reason this construct is not single dimensional so it has to be accessed like this
+argSize = argSize(1);			%for some reason this construct is not single dimensional so it has to be accessed like this
 %disp(argSize)
 for(i = offset:argSize)
 
@@ -266,7 +275,11 @@ for(i = offset:argSize)
 	
 		case "-rps"							%Run Previous Simulation
 			runSim();						%will run previously generated script
-			exit();							% should be called solely by itself
+			exit();				% should be called solely by itself
+		
+		case "-genmap"
+			genMap(arguments{i+1})
+			exit();
 			
 		case "-rs"							%run simulation
 			runS = 1;						%will run the graphics when done with simulation
