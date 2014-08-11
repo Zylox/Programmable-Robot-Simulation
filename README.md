@@ -22,7 +22,8 @@ You will need to install octave. For windows I would recommend using the cygwin(
 the alternative I would reccomend is http://octave.sourceforge.net/ which also has installers for windows and mac.
 Sometimes when using the installer, the console you get doesn't give you the prompt properly. In this situation, add -i --line-editing at the end of your shortcut target (on windows anyway).
 I know it works on octave 3.6.4 through 3.8. I don't know any reason it wouldn't work on other versions though.
-For Linux, its a bit more complicated, but can be found by googling.
+For Fedora Linux/RHEL, simply type "sudo yum install octave" in the terminal.
+For other Linux, its a bit more complicated, but can be found by googling.
 You will also need to have java runtime environment installed, which many people probably already do.
 
 To run:
